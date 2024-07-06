@@ -1,7 +1,90 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with Github Pages!</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id='home' class="section pt-5">
+    <!-- home content here -->
+    <div class='container' style="padding-top: 70px;">
+        <h3>Michael Gonzalez</h3>
+        <h5>Full stack development</h5>
+    </div>
+</div>
+
+<div id="about" class="section pb-5">
+    <div class='container' >
+        <div class="row mt-2">
+            <div class="col-md-8">
+                <div class="about-me">
+                    <p class="card-text">
+                        Hello there!  I am a professional based out of Los Angeles that loves
+                        to explore my creativity and hobbies through tech.
+                    </p>
+                    <div class = "row mt-1">
+                        <div class = "col-md-2">
+                            <p class ="title-1">Say hi!</p>
+                        </div>
+                        <div class = "col-md-1">
+                            <div class = "link-item">
+                                <a href="mailto:{{email}}?subject=Hello%20there
+                                &body=Hi,%20I%20found%20your%20website%20and%20wanted%20to%20reach%20out%20to%20you." target= '_blank'>Email</a>
+
+                            </div>
+                        </div>
+                        <div class = "col-md-2">
+                            <div class = "link-item">
+                                <a href = {{LinkedIn_url}} target =" _blank">Linked in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="projects" class="section pb-5 pt-5">
+    <div class="container">
+        <!-- Projects content here -->
+        <h3 class = "card-title">Projects</h3>
+        <div class="row pt-4 pb-4">
+            {% for project in projects %}
+            <div class="col-md-4">
+                <div class = "card mb-3">
+                    <a href = "{% url 'project_detail' pk=project.id %}" class="card-link text-decoration-none">
+                        <img src="{{ project.image.url }}" class="card-img-top" alt="{{project.title}}">
+                        <div class = "card-body">
+                            <h5 class = "card-title">{{project.title}}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="contributions" class="section pt-5 pb-5">
+    <div class="container">
+         <!-- Contribution content here -->
+         <h3 class = "card-title">Contributions</h3>
+         <h5 class= "pt-3 pb-3"> collection of various contributions I have made across my academic and professional career</h5>
+         <div class="row pt-3 pb-3">
+             {% for contribution in contributions %}
+             <div class="col-md-4">
+                 <div class = "card mb-3">
+                     <a href = "{% url 'contribution_detail' pk=contribution.id %}" class="card-link text-decoration-none">
+                         <img src="{{ contributions.image.url }}" class="card-img-top" alt="">
+                         <div class = "card-body">
+                             <h5 class = "card-title">{{contribution.title}}</h5>
+                         </div>
+                     </a>
+                 </div>
+             </div>
+             {% endfor %}
+         </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+{% endblock %}
