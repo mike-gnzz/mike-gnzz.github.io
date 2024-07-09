@@ -31,3 +31,57 @@
     transform: translate(-50%, -50%);
     color: white;
 }
+
+.image_about {
+    width: 100%;
+}
+
+.navbarDark {
+    background: #000;
+}
+
+/* contributions section css */
+
+.contributionsText.card {
+    height: 280 px;
+    cursor: pointer;
+}
+
+.contributionsIcon {
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+}
+.card-title {
+    text-align: center;
+}
+.card:hover .servicesIcon {
+    color: #008000;
+}
+.contributionsText:hover {
+    border: 1px solid #008000;
+}
+
+/* portfolio section css */
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* social media icons styling */
+.social-icons {
+    font-size: 36px;
+    cursor: pointer;
+}
+.fa-linkedin:hover{
+    color: #008000;
+}
+.fab {
+    color: #000000;
+}
+/* footer styling */
+#footer {
+    background-color: #808080;
+    text-align: center;
+}
